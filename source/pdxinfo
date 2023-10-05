@@ -1,7 +1,7 @@
-name=Game Name
-author=Author Name
-description=This is a Playdate game.
-bundleID=com.domain.GameName
+name=GridViewTutorial
+author=Rahmaan Lodhia
+description=This is a tutorial of Playdate's Grid View UI.
+bundleID=com.domain.GridViewTutorial
 version=1.0
 imagePath=system-assets
 buildNumber=1
