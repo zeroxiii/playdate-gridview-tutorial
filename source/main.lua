@@ -3,6 +3,7 @@ import "CoreLibs/timer"
 import "CoreLibs/ui"
 import "CoreLibs/sprites"
 import "CoreLibs/crank"
+import "CoreLibs/nineslice"
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
@@ -12,6 +13,9 @@ local gridview = pd.ui.gridview.new(32, 32)
 gridview:setNumberOfColumns(8)
 gridview:setNumberOfRows(6)
 gridview:setCellPadding(2, 2, 2, 2)
+
+gridview.backgroundImage = gfx.nineSlice.new("images/gridBackground", 7, 7, 18, 18)
+gridview:setContentInset(5, 5, 5, 5)
 
 local gridviewSprite = gfx.sprite.new()
 gridviewSprite:setCenter(0, 0)
