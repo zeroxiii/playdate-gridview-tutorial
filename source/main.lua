@@ -11,16 +11,23 @@ local gfx <const> = pd.graphics
 local gridview = pd.ui.gridview.new(32, 32)
 
 gridview:setNumberOfColumns(8)
-gridview:setNumberOfRows(6)
+gridview:setNumberOfRows(2, 5, 3)
 gridview:setCellPadding(2, 2, 2, 2)
 
 gridview.backgroundImage = gfx.nineSlice.new("images/gridBackground", 7, 7, 18, 18)
 gridview:setContentInset(5, 5, 5, 5)
 
+gridview:setSectionHeaderHeight(24)
+
 local gridviewSprite = gfx.sprite.new()
 gridviewSprite:setCenter(0, 0)
 gridviewSprite:moveTo(100, 70)
 gridviewSprite:add()
+
+function gridview:drawSectionHeader(section, x, y, width, height)
+	local fontHeight = gfx.getSystemFont():getHeight()
+	gfx.drawTextAligned("*Section " .. section .. "*", x + width / 2, y + (height/2 - fontHeight/2) + 2, kTextAlignment.center)
+end
 
 function gridview:drawCell(section, row, column, selected, x, y, width, height)
 if selected then
