@@ -1,8 +1,16 @@
 import "CoreLibs/graphics"
+import "CoreLibs/timer"
+import "CoreLibs/ui"
 
-local gfx <const> = playdate.graphics
+local pd <const> = playdate
+local gfx <const> = pd.graphics
 
-function playdate.update()
-	gfx.clear()
-	gfx.drawText("Hello World", 20, 20)
+local gridview = pd.ui.gridview.new(32, 32)
+
+gridview:setNumberOfColumns(8)
+gridview:setNumberOfRows(6)
+
+function pd.update()
+	gridview:drawInRect(100, 70, 200, 100)
+	pd.timer.updateTimers()
 end
