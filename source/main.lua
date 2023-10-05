@@ -2,6 +2,7 @@ import "CoreLibs/graphics"
 import "CoreLibs/timer"
 import "CoreLibs/ui"
 import "CoreLibs/sprites"
+import "CoreLibs/crank"
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
@@ -39,6 +40,13 @@ function pd.update()
 		gridview:selectPreviousColumn(false)
 	elseif (pd.buttonJustPressed(pd.kButtonRight)) then
 		gridview:selectNextColumn(false)
+	end
+
+	local crankTicks = pd.getCrankTicks(2)
+	if crankTicks == 1 then
+		gridview:selectNextRow(true)
+	elseif crankTicks == -1 then
+		gridview:selectPreviousRow(true)
 	end
 
 	local gridviewImage = gfx.image.new(200, 100)
